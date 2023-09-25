@@ -28,6 +28,6 @@ class TColor {
   static Color get border => const Color(0xffCFCFFC);
   static Color get primaryText => Colors.white;
   static Color get secondaryText => gray60;
-
+  static Color get something => const Color(0xFF18D1EA);
   static Color get white => Colors.white;
 }
