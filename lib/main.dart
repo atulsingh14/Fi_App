@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fi/common/color_extension.dart';
 import 'package:fi/view/login/welcome_view.dart';
-// import 'package:fi/view/main_tab/main_tab_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
           primaryContainer: TColor.gray60,
           secondary: TColor.secondary,
         ),
-        useMaterial3: false,
+        // useMaterial3: false,
       ),
       home: const WelcomeView(),
     );
