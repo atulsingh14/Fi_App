@@ -19,6 +19,9 @@ class _IntroPageState extends State<IntroPage> {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
+          const SizedBox(
+            height: 50,
+          ),
           Image.asset(
             'assets/images/welcome_screen.png',
             width: media.width,
