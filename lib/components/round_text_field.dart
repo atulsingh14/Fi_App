@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class RoundTextField extends StatelessWidget {
   final String title;
-  final TextEditingController? controller;
+  final TextEditingController controller;
   final TextInputType? keyboardType;
   final TextAlign titleAlign;
   final bool obscureText;
@@ -11,7 +11,7 @@ class RoundTextField extends StatelessWidget {
       {super.key,
       required this.title,
       this.titleAlign = TextAlign.left,
-      this.controller,
+      required this.controller,
       this.keyboardType,
       this.obscureText = false});
 

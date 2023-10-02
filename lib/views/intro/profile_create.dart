@@ -28,10 +28,28 @@ class _ProfileCreateState extends State<ProfileCreate> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 150,
+                  height: 100,
+                ),
+                Text(
+                  'Welcome',
+                  style: TextStyle(
+                    color: FColor.gray10,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 30,
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  'Enter Your Details',
+                  style: TextStyle(color: FColor.gray10),
+                ),
+                const SizedBox(
+                  height: 50,
                 ),
                 RoundTextField(
-                  title: 'Name:',
+                  title: 'What should we call you?:',
                   controller: txtName,
                   keyboardType: TextInputType.name,
                 ),
@@ -39,7 +57,7 @@ class _ProfileCreateState extends State<ProfileCreate> {
                   height: 5,
                 ),
                 RoundTextField(
-                  title: 'Age',
+                  title: 'How old are you?',
                   controller: txtAge,
                   keyboardType: TextInputType.number,
                 ),
@@ -47,7 +65,7 @@ class _ProfileCreateState extends State<ProfileCreate> {
                   height: 5,
                 ),
                 RoundTextField(
-                  title: 'Budget:',
+                  title: 'What is your Monthly Budget',
                   controller: txtBudget,
                   keyboardType: TextInputType.number,
                 ),
@@ -60,7 +78,11 @@ class _ProfileCreateState extends State<ProfileCreate> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ExpenseView(),
+                        builder: (context) => ExpenseView(
+                          name: txtName.text,
+                          age: txtAge.text,
+                          budget: txtBudget.text,
+                        ),
                       ),
                     );
                   },
