@@ -1,6 +1,8 @@
+import 'package:fi/common/color_sheme.dart';
+import 'package:fi/views/intro/intro_page.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 
@@ -9,6 +11,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      title: 'Fi',
+      debugShowCheckedModeBanner: true,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: FColor.primary,
+          background: FColor.gray80,
+          primary: FColor.primary,
+          primaryContainer: FColor.gray60,
+          secondary: FColor.secondary,
+        ),
+        useMaterial3: false,
+      ),
+      home: const IntroPage(),
+    );
   }
 }
