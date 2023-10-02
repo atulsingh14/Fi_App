@@ -18,7 +18,7 @@ class CustomArcPainter extends CustomPainter {
         radius: size.width / 2);
 
     var gradientColor = LinearGradient(
-        colors: [FColor.secondary, FColor.secondary],
+        colors: [FColor.secondary, FColor.secondary.withOpacity(0.9)],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter);
 
