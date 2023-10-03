@@ -12,30 +12,34 @@ class IntroPage extends StatefulWidget {
 
 class _IntroPageState extends State<IntroPage> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: FColor.gray80,
+      backgroundColor: TColor.gray,
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          const SizedBox(
-            height: 50,
-          ),
           Image.asset(
-            'assets/images/welcome_screen.png',
+            "assets/img/welcome_screen.png",
             width: media.width,
             height: media.height,
             fit: BoxFit.cover,
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  const SizedBox(height: 30),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   PrimaryButton(
                     title: "Get started",
                     onPressed: () {
@@ -46,6 +50,9 @@ class _IntroPageState extends State<IntroPage> {
                         ),
                       );
                     },
+                  ),
+                  const SizedBox(
+                    height: 50,
                   ),
                 ],
               ),

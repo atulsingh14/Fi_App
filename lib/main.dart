@@ -1,5 +1,5 @@
 import 'package:fi/common/color_sheme.dart';
-import 'package:fi/views/intro/intro_page.dart';
+import 'package:fi/main_tab/main_tab_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,15 +16,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: FColor.primary,
-          background: FColor.gray80,
-          primary: FColor.primary,
-          primaryContainer: FColor.gray60,
-          secondary: FColor.secondary,
+          seedColor: TColor.primary,
+          background: TColor.gray80,
+          primary: TColor.primary,
+          primaryContainer: TColor.gray60,
+          secondary: TColor.secondary,
         ),
         useMaterial3: false,
       ),
-      home: const IntroPage(),
+      home: const MainTabView(),
     );
   }
 }

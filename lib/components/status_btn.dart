@@ -25,9 +25,9 @@ class StatusButton extends StatelessWidget {
             height: 68,
             decoration: BoxDecoration(
               border: Border.all(
-                color: FColor.border.withOpacity(0.15),
+                color: TColor.border.withOpacity(0.15),
               ),
-              color: FColor.gray60.withOpacity(0.2),
+              color: TColor.gray60.withOpacity(0.2),
               borderRadius: BorderRadius.circular(16),
             ),
             alignment: Alignment.center,
@@ -37,14 +37,14 @@ class StatusButton extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                      color: FColor.gray40,
+                      color: TColor.gray40,
                       fontSize: 12,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
                   value,
                   style: TextStyle(
-                      color: FColor.white,
+                      color: TColor.white,
                       fontSize: 14,
                       fontWeight: FontWeight.w600),
                 ),

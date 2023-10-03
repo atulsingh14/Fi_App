@@ -22,13 +22,13 @@ class PrimaryButton extends StatelessWidget {
         width: double.maxFinite,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: FColor.gray70),
-            color: FColor.gray80),
+            border: Border.all(color: TColor.gray70),
+            color: TColor.gray80),
         alignment: Alignment.center,
         child: Text(
           title,
           style: TextStyle(
-              color: FColor.white, fontSize: fontSize, fontWeight: fontWeight),
+              color: TColor.white, fontSize: fontSize, fontWeight: fontWeight),
         ),
       ),
     );

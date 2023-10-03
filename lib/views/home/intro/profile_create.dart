@@ -1,7 +1,6 @@
 import 'package:fi/common/color_sheme.dart';
 import 'package:fi/components/primary_btn.dart';
 import 'package:fi/components/round_text_field.dart';
-// import 'package:fi/views/home/expense_home.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // Import the intl package
 
@@ -91,7 +90,8 @@ class _ProfileCreateState extends State<ProfileCreate> {
                 PrimaryButton(
                   title: 'Submit',
                   onPressed: () {
-                    Navigator.of(context).push(
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(
                         builder: (context) => const Placeholder(),
                       ),

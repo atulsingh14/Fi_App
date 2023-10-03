@@ -6,10 +6,14 @@ class CustomArcPainter extends CustomPainter {
   final double start;
   final double end;
   final double width;
-  final double blurWidth;
+  final double blurwidth;
 
-  CustomArcPainter(
-      {this.start = 0, this.end = 270, this.width = 15, this.blurWidth = 6});
+  CustomArcPainter({
+    this.start = 0,
+    required this.end,
+    this.width = 10,
+    this.blurwidth = 10,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -17,27 +21,28 @@ class CustomArcPainter extends CustomPainter {
         center: Offset(size.width / 2, size.height / 2),
         radius: size.width / 2);
 
-    var gradientColor = LinearGradient(
-        colors: [FColor.secondary, FColor.secondary.withOpacity(0.9)],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter);
+    var gradiendColor = LinearGradient(
+      colors: [TColor.secondary, TColor.secondary50],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+    );
 
-    Paint activePaint = Paint()..shader = gradientColor.createShader(rect);
+    Paint activePaint = Paint()..shader = gradiendColor.createShader(rect);
 
     activePaint.style = PaintingStyle.stroke;
     activePaint.strokeWidth = width;
     activePaint.strokeCap = StrokeCap.round;
 
     Paint backgroundPaint = Paint();
-    backgroundPaint.color = FColor.gray60.withOpacity(0.5);
+    backgroundPaint.color = TColor.gray60;
     backgroundPaint.style = PaintingStyle.stroke;
     backgroundPaint.strokeWidth = width;
     backgroundPaint.strokeCap = StrokeCap.round;
 
     Paint shadowPaint = Paint()
-      ..color = FColor.secondary.withOpacity(0.3)
+      ..color = TColor.secondary.withOpacity(0.3)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = width + blurWidth
+      ..strokeWidth = width + blurwidth
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
 
     var startVal = 135.0 + start;
