@@ -39,7 +39,10 @@ class _SettingsViewState extends State<SettingsView> {
                   children: [
                     Text(
                       "Settings",
-                      style: TextStyle(color: TColor.gray30, fontSize: 20),
+                      style: TextStyle(
+                          color: TColor.gray10,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
                     )
                   ],
                 ),
@@ -65,7 +68,7 @@ class _SettingsViewState extends State<SettingsView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Atul Singh1",
+                  "your name",
                   style: TextStyle(
                       color: TColor.white,
                       fontSize: 20,
@@ -80,7 +83,7 @@ class _SettingsViewState extends State<SettingsView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "codeforany@gmail.com",
+                  "example@email.com",
                   style: TextStyle(
                       color: TColor.gray30,
                       fontSize: 12,
@@ -159,7 +162,7 @@ class _SettingsViewState extends State<SettingsView> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 8),
                     child: Text(
-                      "My subscription",
+                      "Subscription",
                       style: TextStyle(
                           color: TColor.white,
                           fontSize: 14,

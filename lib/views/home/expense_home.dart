@@ -20,7 +20,7 @@ class _HomeExpenseState extends State<HomeExpense> {
         child: Column(
           children: [
             Container(
-              height: media.width * 1.1,
+              height: media.width,
               decoration: BoxDecoration(
                 color: TColor.gray70.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
@@ -50,22 +50,6 @@ class _HomeExpenseState extends State<HomeExpense> {
                         child: Row(
                           children: [
                             Spacer(),
-                            // IconButton(
-                            //   onPressed: () {
-                            //     Navigator.push(
-                            //       context,
-                            //       MaterialPageRoute(
-                            //         builder: (context) => const SettingsView(),
-                            //       ),
-                            //     );
-                            //   },
-                            //   icon: Image.asset(
-                            //     "assets/img/settings.png",
-                            //     width: 25,
-                            //     height: 25,
-                            //     color: TColor.gray30,
-                            //   ),
-                            // ),
                           ],
                         ),
                       ),
@@ -75,16 +59,16 @@ class _HomeExpenseState extends State<HomeExpense> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        height: media.width * 0.1,
+                      Text(
+                        "Total Budget",
+                        style: TextStyle(
+                          color: TColor.gray40,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                      Image.asset(
-                        "assets/img/app_logo.png",
-                        width: media.width * 0.25,
-                        fit: BoxFit.contain,
-                      ),
                       SizedBox(
-                        height: media.width * 0.05,
+                        height: media.width * 0.01,
                       ),
                       Text(
                         "₹1,500",
@@ -95,23 +79,12 @@ class _HomeExpenseState extends State<HomeExpense> {
                         ),
                       ),
                       SizedBox(
-                        height: media.width * 0.05,
-                      ),
-                      Text(
-                        "Total Budget",
-                        style: TextStyle(
-                          color: TColor.gray40,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      SizedBox(
-                        height: media.width * 0.03,
+                        height: media.width * 0.08,
                       ),
                       InkWell(
                         onTap: () {},
                         child: Container(
-                          padding: const EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: TColor.border.withOpacity(0.15),
@@ -123,8 +96,7 @@ class _HomeExpenseState extends State<HomeExpense> {
                             "See your Report",
                             style: TextStyle(
                               color: TColor.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
                             ),
                           ),
                         ),
