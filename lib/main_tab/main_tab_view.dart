@@ -3,7 +3,7 @@ import 'package:fi/views/calender/calender_view.dart';
 import 'package:fi/views/home/expense_home.dart';
 import 'package:fi/views/settings/settings_view.dart';
 import 'package:fi/views/spending_budget/spending_budget_view.dart';
-import 'package:fi/views/subscription/subscription_view.dart';
+import 'package:fi/views/features/add_entry.dart';
 import 'package:flutter/material.dart';
 
 class MainTabView extends StatefulWidget {
@@ -117,8 +117,7 @@ class _MainTabViewState extends State<MainTabView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const AddSubScriptionView()));
+                                builder: (context) => const AddEntry()));
                       },
                       child: Container(
                         margin: const EdgeInsets.all(20),
