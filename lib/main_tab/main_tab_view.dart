@@ -7,16 +7,29 @@ import 'package:fi/views/features/add_entry.dart';
 import 'package:flutter/material.dart';
 
 class MainTabView extends StatefulWidget {
-  const MainTabView({super.key});
+  final String budget;
+
+  const MainTabView({Key? key, required this.budget})
+      : super(key: key); // Update the constructor
 
   @override
   State<MainTabView> createState() => _MainTabViewState();
 }
 
 class _MainTabViewState extends State<MainTabView> {
+  String budget = '';
   int selectTab = 0;
   PageStorageBucket pageStorageBucket = PageStorageBucket();
-  Widget currentTabView = const HomeExpense();
+  late Widget currentTabView;
+
+  @override
+  void initState() {
+    super.initState();
+    currentTabView = HomeExpense(
+      budget: widget.budget,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +57,9 @@ class _MainTabViewState extends State<MainTabView> {
                               onPressed: () {
                                 setState(() {
                                   selectTab = 0;
-                                  currentTabView = const HomeExpense();
+                                  currentTabView = HomeExpense(
+                                    budget: widget.budget,
+                                  );
                                 });
                               },
                               icon: Image.asset(
@@ -115,9 +130,11 @@ class _MainTabViewState extends State<MainTabView> {
                     InkWell(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AddEntry()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const AddEntry(),
+                          ),
+                        );
                       },
                       child: Container(
                         margin: const EdgeInsets.all(20),

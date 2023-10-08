@@ -1,19 +1,44 @@
 import 'package:fi/common/color_sheme.dart';
 import 'package:fi/components/custom_arc_painter.dart';
+import 'package:fi/components/home_list.dart';
 import 'package:fi/components/status_btn.dart';
+import 'package:fi/database/database_helper.dart';
 import 'package:flutter/material.dart';
 
 class HomeExpense extends StatefulWidget {
-  const HomeExpense({super.key});
+  final String budget;
+  const HomeExpense({Key? key, required this.budget}) : super(key: key);
 
   @override
   State<HomeExpense> createState() => _HomeExpenseState();
 }
 
 class _HomeExpenseState extends State<HomeExpense> {
+  String budget = '';
+  List<Map<String, dynamic>> entries = [];
+  bool isLoading = true;
+
+  void getEntries() async {
+    final data = await SQLHelper.getEntries();
+    setState(() {
+      entries = data;
+      isLoading = false;
+      print("number of entries: ${entries.length}");
+      print("Entries: ${entries}");
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    getEntries();
+    budget = widget.budget;
+  }
+
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.sizeOf(context);
+    var media = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: TColor.gray,
       body: SingleChildScrollView(
@@ -71,7 +96,7 @@ class _HomeExpenseState extends State<HomeExpense> {
                         height: media.width * 0.01,
                       ),
                       Text(
-                        "₹1,500",
+                        widget.budget,
                         style: TextStyle(
                           color: TColor.white,
                           fontSize: 40,
@@ -139,6 +164,21 @@ class _HomeExpenseState extends State<HomeExpense> {
             ),
             const SizedBox(
               height: 16,
+            ),
+            ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: entries.length,
+              itemBuilder: (context, index) {
+                return ExpenseRow(
+                  title: entries[index]['title'],
+                  budget: entries[index]['cost'].toString(),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 100,
             ),
           ],
         ),

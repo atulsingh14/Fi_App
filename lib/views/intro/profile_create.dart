@@ -1,7 +1,7 @@
 import 'package:fi/common/color_sheme.dart';
 import 'package:fi/components/primary_btn.dart';
 import 'package:fi/components/round_text_field.dart';
-// import 'package:fi/views/home/expense_home.dart';
+import 'package:fi/main_tab/main_tab_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; // Import the intl package
 
@@ -17,18 +17,28 @@ class _ProfileCreateState extends State<ProfileCreate> {
   TextEditingController ageController = TextEditingController();
   TextEditingController budgetController = TextEditingController();
 
-  // Formatter for currency
-  final currencyFormatter = NumberFormat.currency(locale: 'HI', symbol: '₹');
+  void _navigateToMainTabView(BuildContext context) {
+    String budget = budgetController.text;
+    budget = formatCurrency(budget);
 
-  // void _saveProfileDetails() {
-  //   // Retrieve user details from text controllers
-  //   String name = nameController.text;
-  //   String age = ageController.text;
-  //   String budget = budgetController.text;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => MainTabView(
+          budget: budget, // Format the budget
+        ),
+      ),
+    );
+  }
 
-  //   // Convert budget to currency format
-  //   String formattedBudget = currencyFormatter.format(double.parse(budget));
-  // }
+  String formatCurrency(String amount) {
+    final currencyFormatter = NumberFormat.currency(
+      locale: 'hi_IN', // Use 'hi_IN' for Hindi formatting
+      symbol: '₹ ',
+      decimalDigits: 0, // Set decimalDigits to 0 for no decimal points
+    );
+
+    return currencyFormatter.format(double.tryParse(amount) ?? 0.0);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,11 +101,7 @@ class _ProfileCreateState extends State<ProfileCreate> {
                 PrimaryButton(
                   title: 'Submit',
                   onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const Placeholder(),
-                      ),
-                    );
+                    _navigateToMainTabView(context); // Navigate to HomeExpense
                   },
                 )
               ],

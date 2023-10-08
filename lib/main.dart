@@ -1,5 +1,6 @@
 import 'package:fi/common/color_sheme.dart';
-import 'package:fi/main_tab/main_tab_view.dart';
+// import 'package:fi/main_tab/main_tab_view.dart';
+import 'package:fi/views/intro/intro_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fi',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: TColor.primary,
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: false,
       ),
-      home: const MainTabView(),
+      home: const IntroPage(),
     );
   }
 }
